@@ -41,7 +41,7 @@ host_magento_dir = host_vagrant_dir + '/magento2ce'
 
 VAGRANT_API_VERSION = 2
 Vagrant.configure(VAGRANT_API_VERSION) do |config|
-    config.vm.box = "paliarush/magento2.ubuntu"
+    config.vm.box = "p19x30/magento2.ubuntu"
     config.vm.box_version = "~> 1.1"
 
     config.vm.provider "virtualbox" do |vb|

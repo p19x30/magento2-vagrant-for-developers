@@ -1,9 +1,9 @@
 # Vagrant project for Magento 2 developers (optimized for Mac, Windows and \*nix hosts)
 
-[![Tests passing on OSX](docs/images/tests_badge.png)](https://github.com/paliarush/magento2-vagrant-for-developers-tests)
+[![Tests passing on OSX](docs/images/tests_badge.png)](https://github.com/p19x30/magento2-vagrant-for-developers-tests)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Semver](http://img.shields.io/SemVer/2.0.0.png?color=blue)](http://semver.org/spec/v2.0.0.html)
-[![Latest GitHub release](docs/images/release_badge.png)](https://github.com/paliarush/magento2-vagrant-for-developers/releases/latest)
+[![Latest GitHub release](docs/images/release_badge.png)](https://github.com/p19x30/magento2-vagrant-for-developers/releases/latest)
 
  * [What You get](#what-you-get)
  * [How to install](#how-to-install)
@@ -48,7 +48,7 @@ It is easy to [install multiple Magento instances](#multiple-magento-instances) 
 The [project initialization script](init_project.sh) configures a complete development environment:
 
  1. Adds some missing software on the host
- 1. Configures all software necessary for Magento 2 using a [custom Ubuntu vagrant box](https://atlas.hashicorp.com/paliarush/boxes/magento2.ubuntu) (Apache 2.4, PHP 7.0 or 5.6, MySQL 5.6, Git, Composer, XDebug, Rabbit MQ, Varnish)
+ 1. Configures all software necessary for Magento 2 using a [custom Ubuntu vagrant box](https://atlas.hashicorp.com/p19x30/boxes/magento2.ubuntu) (Apache 2.4, PHP 7.0 or 5.6, MySQL 5.6, Git, Composer, XDebug, Rabbit MQ, Varnish)
  1. Installs Magento 2 from Git repositories or Composer packages (can be configured via `checkout_source_from` option in [etc/config.yaml](etc/config.yaml.dist))
  1. Configures PHP Storm project (partially at the moment)
  1. Installs NodeJS, NPM, Grunt and Gulp for front end development
@@ -90,7 +90,7 @@ The software listed below should be available in [PATH](https://en.wikipedia.org
     :warning: Do not open it in PhpStorm until `init_project.sh` has completed PhpStorm configuration in the initialize project step below.
 
      ```
-     git clone git@github.com:paliarush/magento2-vagrant-for-developers.git vagrant-magento
+     git clone git@github.com:p19x30/magento2-vagrant-for-developers.git vagrant-magento
      ```
 
     Optionally, if you use private repositories on GitHub or download packages from the Magento Marketplace using Composer
@@ -243,7 +243,7 @@ To debug Magento Setup script, go to [Magento installation script](scripts/guest
 
 ### Connecting to MySQL DB
 
-Answer can be found [here](https://github.com/paliarush/magento2-vagrant-for-developers/issues/8)
+Answer can be found [here](https://github.com/p19x30/magento2-vagrant-for-developers/issues/8)
 
 ### View emails sent by Magento
 
@@ -280,7 +280,7 @@ bash m-composer update
 
 ### Running Magento tests
 
-See [draft](https://github.com/paliarush/magento2-vagrant-for-developers/issues/120)
+See [draft](https://github.com/p19x30/magento2-vagrant-for-developers/issues/120)
 
 
 ## Environment configuration
@@ -353,7 +353,7 @@ Note: See [Working with npm](https://www.npmjs.com/package/n#working-with-npm) i
 ### FAQ
 
  1. To debug any CLI script in current Vagrant project, set `debug:vagrant_project` option in [config.yaml](etc/config.yaml.dist) to `1`
- 1. Is Windows 10 supported? Yes, but you may face the same issue as described [here](https://github.com/paliarush/magento2-vagrant-for-developers/issues/36) or [here](https://github.com/paliarush/magento2-vagrant-for-developers/issues/173). Also Virtual box may not work on Windows 10 in headless mode, see how to [enable GUI mode](https://www.vagrantup.com/docs/virtualbox/configuration.html)
+ 1. Is Windows 10 supported? Yes, but you may face the same issue as described [here](https://github.com/p19x30/magento2-vagrant-for-developers/issues/36) or [here](https://github.com/p19x30/magento2-vagrant-for-developers/issues/173). Also Virtual box may not work on Windows 10 in headless mode, see how to [enable GUI mode](https://www.vagrantup.com/docs/virtualbox/configuration.html)
  1. ![](docs/images/linux-icon.png)![](docs/images/osx-icon.png) On OSX and \*nix hosts NFS will be used by default to sync your project files with guest. On some hosts Vagrant cannot configure NFS properly, in this case it is possible to deploy project without NFS by setting `use_nfs` option in [config.yaml](etc/config.yaml.dist) to `0` <br />
  1. ![](docs/images/windows-icon.png) On Windows hosts you might face `Composer Install Error: ZipArchive::extractTo(): Full extraction path exceed MAXPATHLEN (260)` exception during `composer install`. This can be fixed in 2 ways: decrease path length to the project directory or set `composer_prefer_source` option in [config.yaml](etc/config.yaml.dist) to `1`
  1. Make sure that you used `vagrant-magento` directory as project root in PHP Storm (not `vagrant-magento/magento2ce`)
@@ -361,8 +361,8 @@ Note: See [Working with npm](https://www.npmjs.com/package/n#working-with-npm) i
  1. If code is not synchronized properly on Windows hosts (or when NFS mode is disabled in [config.yaml](etc/config.yaml.dist) explicitly), make sure that PhpStorm is running before making any changes in the code. This is important because otherwise PhpStorm will not be able to detect changes and upload them to the guest machine
  1. Please make sure that currently installed software, specified in [requirements section](#requirements), meets minimum version requirement
  1. Be careful if your OS is case-insensitive, NFS might break the symlinks if you cd into the wrong casing and you power the vagrant up. Just be sure to cd in to the casing the directory was originally created as.
- 1. Cannot run unit tests from PHPStorm on Magento 2.2, see possible solution [here](https://github.com/paliarush/magento2-vagrant-for-developers/issues/167)
- 1. [Permission denied (publickey)](https://github.com/paliarush/magento2-vagrant-for-developers/issues/165)
+ 1. Cannot run unit tests from PHPStorm on Magento 2.2, see possible solution [here](https://github.com/p19x30/magento2-vagrant-for-developers/issues/167)
+ 1. [Permission denied (publickey)](https://github.com/p19x30/magento2-vagrant-for-developers/issues/165)
  1. If during a vagrant reload, the following message appears:
  
     >There was a problem while downloading the metadata for your box
@@ -374,7 +374,7 @@ Note: See [Working with npm](https://www.npmjs.com/package/n#working-with-npm) i
     It is likely that your vagrant cli is caching an old url. Perform the following cli commands:
     
     ```bash
-    sed -i -- 's/atlas.hashicorp/vagrantcloud/g' ~/.vagrant.d/boxes/{name of your paliarush/ubuntu image}/metadata_url
-    mv ~/.vagrant.d/boxes/{name of your paliarush/ubuntu image}/metadata_url2 ~/.vagrant.d/boxes/{name of your paliarush/ubuntu image}/metadata_url
+    sed -i -- 's/atlas.hashicorp/vagrantcloud/g' ~/.vagrant.d/boxes/{name of your p19x30/ubuntu image}/metadata_url
+    mv ~/.vagrant.d/boxes/{name of your p19x30/ubuntu image}/metadata_url2 ~/.vagrant.d/boxes/{name of your p19x30/ubuntu image}/metadata_url
     ``` 
     
